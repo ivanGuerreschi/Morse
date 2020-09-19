@@ -1,7 +1,7 @@
-/* main.c
+/* menu.h
    Copyright (C) 2020 Ivan Guerreschi
 
-This file is part of morse.
+This file is part of verbsitadeu.
 
 Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
 Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>
@@ -19,27 +19,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with morse.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "include/menu.h"
+#ifndef MENU_H
+#define MENU_H
 
-int
-main(int argc, char *argv[])
-{
-  int menu = 0;  
+int print_menu (void);
 
-  while (true)
-    {
-      menu = print_menu ();
-
-      switch (menu)
-        {
-        case 1:
-          exit (1);
-          break;
-	}
-    }
-
-  return 0;
-}
+#endif /* MENU_H */

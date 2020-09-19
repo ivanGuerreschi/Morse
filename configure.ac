@@ -36,7 +36,7 @@ AC_PROG_CC_C99
 
 # Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([stdio.h])
+AC_CHECK_HEADERS([stdio.h stdlib.h stdbool.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T

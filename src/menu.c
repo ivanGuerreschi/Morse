@@ -1,4 +1,4 @@
-/* main.c
+/* menu.c
    Copyright (C) 2020 Ivan Guerreschi
 
 This file is part of morse.
@@ -21,25 +21,34 @@ along with morse.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include "include/menu.h"
+#include <string.h>
 
 int
-main(int argc, char *argv[])
+print_menu (void)
 {
-  int menu = 0;  
+  int number_input = 0;
+  char buffer[BUFSIZ];
 
-  while (true)
+  puts ("----------------------------------------------");
+  puts ("Morse\n");
+  puts ("(1, 2, 3) Input number");
+  puts ("(1) Quit ");
+  puts ("(2) Print all Morse code");
+  puts ("(3) Translate Morse code");
+  puts ("----------------------------------------------");
+
+  fgets (buffer, sizeof (buffer), stdin);
+
+  if (( strlen (buffer) - 1) > 1)
     {
-      menu = print_menu ();
-
-      switch (menu)
-        {
-        case 1:
-          exit (1);
-          break;
-	}
+      return 0;
     }
 
-  return 0;
+  buffer[strcspn (buffer, "\r\n")] = 0;
+
+  number_input = atoi (buffer);
+
+  return number_input;
 }
+
+

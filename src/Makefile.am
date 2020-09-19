@@ -24,7 +24,7 @@ AM_CFLAGS = -I $(top_srcdir)/src \
           -Wformat=2 -Wno-unused-parameter -Wshadow \
           -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
           -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
-	  -Wjump-misses-init -Wlogical-op	
+	  -Wjump-misses-init -Wlogical-op -fanalyzer	
 
 bin_PROGRAMS = morse
-morse_SOURCES = main.c
+morse_SOURCES = main.c menu.c
