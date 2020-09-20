@@ -1,7 +1,7 @@
-/* main.c
+/* morse.h
    Copyright (C) 2020 Ivan Guerreschi
 
-This file is part of morse.
+This file is part of verbsitadeu.
 
 Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
 Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>
@@ -19,27 +19,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with morse. If not, see <http://www.gnu.org/licenses/>. */
 
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef LIBMORSE_H
+#define LIBMORSE_H
+
 #include <stdbool.h>
-#include "include/menu.h"
 
-int
-main(int argc, char *argv[])
+typedef struct
 {
-  int menu = 0;  
+  char *morse_code;
+  char *alpha_numerics_code;
+} morse_t;
 
-  while (true)
-    {
-      menu = print_menu ();
+morse_t *all_verbs (void);
+char *translate_morse_code (const char *morse);
 
-      switch (menu)
-        {
-        case 1:
-          exit (1);
-          break;
-	}
-    }
-
-  return 0;
-}
+#endif /* LIBMORSE_H */

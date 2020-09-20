@@ -20,7 +20,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with morse.  If not, see <http://www.gnu.org/licenses/>. 
+# along with morse. If not, see <http://www.gnu.org/licenses/>. 
 
 AC_PREREQ([2.69])
 AC_INIT([morse], [0.1], [ivanguerreschi86@gmail.com])
@@ -31,18 +31,21 @@ AM_INIT_AUTOMAKE
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_CC_C99
+AC_PROG_RANLIB
 
 # Checks for libraries.
 
 # Checks for header files.
-AC_HEADER_STDC
-AC_CHECK_HEADERS([stdio.h stdlib.h stdbool.h])
+AC_CHECK_HEADERS([stdlib.h string.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_TYPE_SIZE_T
+AC_CHECK_HEADER_STDBOOL
 
 # Checks for library functions.
+AC_FUNC_MALLOC
+AC_CHECK_FUNCS([strcspn])
 
 AC_CONFIG_FILES([Makefile
+		 lib/Makefile
                  src/Makefile])
 AC_OUTPUT

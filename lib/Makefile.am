@@ -19,14 +19,16 @@
 # You should have received a copy of the GNU General Public License
 # along with morse. If not, see <http://www.gnu.org/licenses/>. 
 
-AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/src/lib \
+AM_CFLAGS = -I $(top_srcdir)/src \
           -Wall -Wextra -Wpedantic \
           -Wformat=2 -Wno-unused-parameter -Wshadow \
           -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
           -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
 	  -Wjump-misses-init -Wlogical-op -fanalyzer	
 
-bin_PROGRAMS = morse
-morse_SOURCES = main.c menu.c
+noinst_LIBRARIES = libmorse.a
+noinst_HEADERS = morse.h
 
-morse_LDADD = $(top_builddir)/lib/libmorse.a $(AM_LDFLAGS)
+libmorse_a_SOURCES = \
+		     $(libmorse_a_HEADERS) \
+		     morse.c
