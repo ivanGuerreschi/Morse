@@ -46,6 +46,6 @@ AC_FUNC_MALLOC
 AC_CHECK_FUNCS([strcspn])
 
 AC_CONFIG_FILES([Makefile
-		 lib/Makefile
+		 src/lib/Makefile
                  src/Makefile])
 AC_OUTPUT

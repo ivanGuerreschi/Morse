@@ -20,7 +20,7 @@
 # along with morse. If not, see <http://www.gnu.org/licenses/>. 
 
 SUBDIRS = \
-	  lib/ \
+	  src/lib/ \
           src/
 
 clean-local:

@@ -23,11 +23,15 @@ along with morse. If not, see <http://www.gnu.org/licenses/>. */
 #include <stdlib.h>
 #include <stdbool.h>
 #include "include/menu.h"
+#include "alphanumeric-morse.h"
+
+void print_all_alphanumeric_morse (alphanumeric_morse_t *am);
 
 int
-main(int argc, char *argv[])
+main (int argc, char *argv[])
 {
-  int menu = 0;  
+  alphanumeric_morse_t *am = init_struct ();
+  int menu = 0;
 
   while (true)
     {
@@ -38,8 +42,20 @@ main(int argc, char *argv[])
         case 1:
           exit (1);
           break;
-	}
+
+        case 2:
+          print_all_alphanumeric_morse (am);
+          break;
+        }
     }
 
   return 0;
 }
+
+void
+print_all_alphanumeric_morse (alphanumeric_morse_t *am)
+{
+  for (int i = 0; i < ELEMENTS; i++)
+    printf ("Morse: %s Alphanumeric: %c\n", am[i].morse_code, am[i].alphanumeric_code);
+}
+

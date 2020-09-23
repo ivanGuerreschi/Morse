@@ -1,7 +1,7 @@
-/* morse.h
+/* alphanumeric-morse.h
    Copyright (C) 2020 Ivan Guerreschi
 
-This file is part of verbsitadeu.
+This file is part of morse.
 
 Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
 Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>
@@ -19,18 +19,17 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with morse. If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef LIBMORSE_H
-#define LIBMORSE_H
+#ifndef LIBALPHANUMERIC_MORSE_H
+#define LIBALPHANUMERIC_MORSE_H
 
-#include <stdbool.h>
+#define ELEMENTS 36
 
 typedef struct
 {
-  char *morse_code;
-  char *alpha_numerics_code;
-} morse_t;
+  char morse_code[6];
+  char alphanumeric_code;
+} alphanumeric_morse_t;
 
-morse_t *all_verbs (void);
-char *translate_morse_code (const char *morse);
+alphanumeric_morse_t *init_struct (void);
 
-#endif /* LIBMORSE_H */
+#endif /* LIBALPHANUMERIC_MORSE_H */

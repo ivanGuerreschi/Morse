@@ -19,16 +19,16 @@
 # You should have received a copy of the GNU General Public License
 # along with morse. If not, see <http://www.gnu.org/licenses/>. 
 
-AM_CFLAGS = -I $(top_srcdir)/src \
+AM_CFLAGS = -I $(top_srcdir)/src/lib \
           -Wall -Wextra -Wpedantic \
           -Wformat=2 -Wno-unused-parameter -Wshadow \
           -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
           -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
 	  -Wjump-misses-init -Wlogical-op -fanalyzer	
 
-noinst_LIBRARIES = libmorse.a
-noinst_HEADERS = morse.h
+noinst_LIBRARIES = libalphanumeric_morse.a
+noinst_HEADERS = alphanumeric-morse.h
 
-libmorse_a_SOURCES = \
-		     $(libmorse_a_HEADERS) \
-		     morse.c
+libalphanumeric_morse_a_SOURCES = \
+		     $(libalphanumeric_morse_a_HEADERS) \
+		     alphanumeric-morse.c

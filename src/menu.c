@@ -33,7 +33,7 @@ print_menu (void)
   puts ("Morse\n");
   puts ("(1, 2, 3) Input number");
   puts ("(1) Quit ");
-  puts ("(2) Print all Morse code");
+  puts ("(2) Print all Alphanumeric and Morse code");
   puts ("(3) Translate Morse code");
   puts ("----------------------------------------------");
 
