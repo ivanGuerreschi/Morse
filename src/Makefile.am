@@ -28,5 +28,4 @@ AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/src/lib \
 
 bin_PROGRAMS = morse
 morse_SOURCES = main.c menu.c
-
 morse_LDADD = $(top_builddir)/src/lib/libalphanumeric_morse.a $(AM_LDFLAGS)
