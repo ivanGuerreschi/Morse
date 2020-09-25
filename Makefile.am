@@ -20,8 +20,9 @@
 # along with morse. If not, see <http://www.gnu.org/licenses/>. 
 
 SUBDIRS = \
-	  src/lib/ \
-          src/
+	src/lib/ \
+        src/ \
+	test/
 
 clean-local:
 	@rm config.status configure config.log	

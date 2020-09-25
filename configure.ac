@@ -34,6 +34,7 @@ AC_PROG_CC_C99
 AC_PROG_RANLIB
 
 # Checks for libraries.
+PKG_CHECK_MODULES([CHECK], [check >= 0.14.0])
 
 # Checks for header files.
 AC_CHECK_HEADERS([stdlib.h string.h])
@@ -47,5 +48,6 @@ AC_CHECK_FUNCS([strcspn])
 
 AC_CONFIG_FILES([Makefile
 		 src/lib/Makefile
-                 src/Makefile])
+                 src/Makefile
+		 test/Makefile])
 AC_OUTPUT

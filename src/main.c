@@ -22,15 +22,16 @@ along with morse. If not, see <http://www.gnu.org/licenses/>. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "include/menu.h"
 #include "alphanumeric-morse.h"
 
-void print_all_alphanumeric_morse (alphanumeric_morse_t *am);
+void print_all_alphanumeric_morse (alphanumeric_morse_t *alphanumeric_morse);
 
 int
 main (int argc, char *argv[])
 {
-  alphanumeric_morse_t *am = init_struct ();
+  alphanumeric_morse_t *alphanumeric_morse = init_struct ();
   int menu = 0;
 
   while (true)
@@ -44,7 +45,21 @@ main (int argc, char *argv[])
           break;
 
         case 2:
-          print_all_alphanumeric_morse (am);
+          print_all_alphanumeric_morse (alphanumeric_morse);
+          break;
+
+        case 3:
+          puts ("Enter Alphanumeric code");
+          char alphanumeric[BUFSIZ];
+
+          if (fgets (alphanumeric, sizeof (alphanumeric), stdin) == NULL)
+            fprintf (stderr, "Fail to read the input stream\n");
+          else
+            alphanumeric[strcspn (alphanumeric, "\r\n")] = 0;
+
+          puts (exist_alphanumeric_code (alphanumeric_morse, alphanumeric)
+                ? "The Alphanumeric exists"
+                : "The Alphanumeric does not exist");
           break;
         }
     }
@@ -56,6 +71,6 @@ void
 print_all_alphanumeric_morse (alphanumeric_morse_t *am)
 {
   for (int i = 0; i < ELEMENTS; i++)
-    printf ("Morse: %s Alphanumeric: %c\n", am[i].morse_code, am[i].alphanumeric_code);
+    printf ("Morse: %s Alphanumeric: %s\n", am[i].morse_code, am[i].alphanumeric_code);
 }
 
