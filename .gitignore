@@ -37,3 +37,5 @@ vgcore.*
 TODO.org
 .dir-locals.el
 test-driver
+test/check_morse.trs
+test/check_morse

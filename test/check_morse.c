@@ -17,6 +17,7 @@ START_TEST (test_morse_alphanumeric_code)
   alphanumeric_morse_t *alphanumeric_morse = init_struct ();
 
   ck_assert_int_eq (exist_alphanumeric_code (alphanumeric_morse, "a"), 1);
+  ck_assert_int_eq (exist_alphanumeric_code (alphanumeric_morse, "aa"), 0);
 
 }
 END_TEST
@@ -26,6 +27,7 @@ START_TEST (test_morse_morse_code)
   alphanumeric_morse_t *alphanumeric_morse = init_struct ();
 
   ck_assert_int_eq (exist_morse_code (alphanumeric_morse, ".-"), 1);
+  ck_assert_int_eq (exist_alphanumeric_code (alphanumeric_morse, "....._"), 0);
 
 }
 END_TEST
@@ -57,7 +59,7 @@ int main (void)
   s = morse_suite();
   sr = srunner_create (s);
 
-  srunner_run_all (sr, CK_NORMAL);
+  srunner_run_all (sr, CK_VERBOSE);
   number_failed = srunner_ntests_failed (sr);
   srunner_free (sr);
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
