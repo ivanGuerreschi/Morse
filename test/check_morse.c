@@ -32,6 +32,16 @@ START_TEST (test_morse_morse_code)
 }
 END_TEST
 
+START_TEST (test_morse_translate_morse_code)
+{
+  alphanumeric_morse_t *alphanumeric_morse = init_struct ();
+
+  ck_assert_str_eq (translate_morse_code (alphanumeric_morse, ".-"), "a");
+  ck_assert_str_eq (translate_morse_code (alphanumeric_morse, "....._"), "a");
+
+}
+END_TEST
+
 Suite *morse_suite (void)
 {
   Suite *s;
@@ -45,6 +55,7 @@ Suite *morse_suite (void)
   tcase_add_test (tc_core, test_morse_create);
   tcase_add_test (tc_core, test_morse_alphanumeric_code);
   tcase_add_test (tc_core, test_morse_morse_code);
+  tcase_add_test (tc_core, test_morse_translate_morse_code);
   suite_add_tcase (s, tc_core);
 
   return s;

@@ -33,7 +33,10 @@ typedef struct
 alphanumeric_morse_t *init_struct (void);
 bool exist_alphanumeric_code (alphanumeric_morse_t *alphanumeric_morse,
                               const char *alphanumeric_code);
-bool exist_morse_code(alphanumeric_morse_t *alphanumeric_morse,
-		      const char *morse_code);
+bool exist_morse_code (alphanumeric_morse_t *alphanumeric_morse,
+                       const char *morse_code);
+
+char *translate_morse_code (alphanumeric_morse_t *alphanumeric_morse,
+                            const char *morse_code);
 
 #endif /* LIBALPHANUMERIC_MORSE_H */

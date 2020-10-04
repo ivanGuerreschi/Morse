@@ -19,6 +19,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with morse. If not, see <http://www.gnu.org/licenses/>. */
 
+#include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 #include "alphanumeric-morse.h"
@@ -99,4 +100,13 @@ exist_morse_code (alphanumeric_morse_t *alphanumeric_morse,
     }  
   
   return compare;
+}
+
+char
+*translate_morse_code(alphanumeric_morse_t* alphanumeric_morse,
+		     const char* morse_code)
+{
+  char *translate ="";
+  
+  return translate;
 }

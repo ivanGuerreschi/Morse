@@ -39,3 +39,4 @@ TODO.org
 test-driver
 test/check_morse.trs
 test/check_morse
+*.orig
