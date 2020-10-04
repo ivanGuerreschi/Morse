@@ -1,3 +1,24 @@
+/* check_morse.c
+   Copyright (C) 2020 Ivan Guerreschi
+
+This file is part of morse.
+
+Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
+Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>
+
+morse is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+morse is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with morse. If not, see <http://www.gnu.org/licenses/>. */
+
 #include <check.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -35,10 +56,8 @@ END_TEST
 START_TEST (test_morse_translate_morse_code)
 {
   alphanumeric_morse_t *alphanumeric_morse = init_struct ();
-
-  ck_assert_str_eq (translate_morse_code (alphanumeric_morse, ".-"), "a");
-  ck_assert_str_eq (translate_morse_code (alphanumeric_morse, "....._"), "a");
-
+  char **translate = translate_morse_code(alphanumeric_morse, "..-");   
+  ck_assert_str_eq (translate[0], "u");
 }
 END_TEST
 

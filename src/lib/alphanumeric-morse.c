@@ -22,6 +22,7 @@ along with morse. If not, see <http://www.gnu.org/licenses/>. */
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 #include "alphanumeric-morse.h"
 
 alphanumeric_morse_t
@@ -103,10 +104,38 @@ exist_morse_code (alphanumeric_morse_t *alphanumeric_morse,
 }
 
 char
-*translate_morse_code(alphanumeric_morse_t* alphanumeric_morse,
-		     const char* morse_code)
+**translate_morse_code(alphanumeric_morse_t *alphanumeric_morse,
+		       char morse_code[])
 {
-  char *translate ="";
+  char **translate = calloc (BUFSIZ, sizeof (char));
+  char *token = strtok (morse_code, " ");
+  int i = 0;
+  int n = 0;
   
+  alphanumeric_morse = init_struct ();
+
+  while (token != NULL)
+    {
+      translate[i] = malloc (50);
+      strcpy (translate[i], token);
+      token = strtok (NULL, " ");
+      i++;
+    }
+
+  for (int j = 0; j < ELEMENTS; j++)
+    {
+      if (strcmp (translate[n], alphanumeric_morse[j].morse_code) == 0)
+	{
+	  translate[n] = alphanumeric_morse[j].alphanumeric_code;
+	  if (n < i - 1)
+	    {
+	      n++;
+	      j = 0;
+	    }
+	  else
+	    break;
+	}
+    } 
+   
   return translate;
 }

@@ -45,7 +45,7 @@ main (int argc, char *argv[])
           break;
 
         case 2:
-          print_all_alphanumeric_morse (alphanumeric_morse);
+          print_all_alphanumeric_morse (alphanumeric_morse);	  
           break;
 
         case 3:

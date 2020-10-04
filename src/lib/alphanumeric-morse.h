@@ -36,7 +36,7 @@ bool exist_alphanumeric_code (alphanumeric_morse_t *alphanumeric_morse,
 bool exist_morse_code (alphanumeric_morse_t *alphanumeric_morse,
                        const char *morse_code);
 
-char *translate_morse_code (alphanumeric_morse_t *alphanumeric_morse,
-                            const char *morse_code);
+char **translate_morse_code (alphanumeric_morse_t *alphanumeric_morse,
+			     char morse_code[]);
 
 #endif /* LIBALPHANUMERIC_MORSE_H */
