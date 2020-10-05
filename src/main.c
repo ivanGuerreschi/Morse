@@ -33,7 +33,7 @@ main (int argc, char *argv[])
 {
   alphanumeric_morse_t *alphanumeric_morse = init_struct ();
   int menu = 0;
-
+   
   while (true)
     {
       menu = print_menu ();
@@ -45,7 +45,7 @@ main (int argc, char *argv[])
           break;
 
         case 2:
-          print_all_alphanumeric_morse (alphanumeric_morse);	  
+          print_all_alphanumeric_morse (alphanumeric_morse);	   	 
           break;
 
         case 3:

@@ -108,19 +108,33 @@ char
 		       char morse_code[])
 {
   char **translate = calloc (BUFSIZ, sizeof (char));
-  char *token = strtok (morse_code, " ");
+  if (translate == NULL)
+    {
+      perror ("Error allocation failed");
+      exit (0);
+    }
+  
+  char delim[] = " ";
+  char *token = strtok (morse_code, delim); 
   int i = 0;
   int n = 0;
+  
   
   alphanumeric_morse = init_struct ();
 
   while (token != NULL)
     {
-      translate[i] = malloc (50);
+      translate[i] =  malloc (50);
+      if (translate[i] == NULL)
+	{
+	  perror ("Error allocation failed");
+	  exit (0);
+	}
+      
       strcpy (translate[i], token);
-      token = strtok (NULL, " ");
+      token = strtok (NULL, delim);
       i++;
-    }
+    }  
 
   for (int j = 0; j < ELEMENTS; j++)
     {
@@ -135,7 +149,7 @@ char
 	  else
 	    break;
 	}
-    } 
+    }
    
   return translate;
 }
