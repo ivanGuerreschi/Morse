@@ -30,6 +30,7 @@ alphanumeric_morse_t
 {
   static alphanumeric_morse_t alphanumeric_morse[] =
   {
+    {"", ""},
     {".-", "a"},
     {"-...", "b"},
     {"-.-.", "c"},
@@ -117,8 +118,7 @@ char
   char delim[] = " ";
   char *token = strtok (morse_code, delim); 
   int i = 0;
-  int n = 0;
-  
+  int n = 0;  
   
   alphanumeric_morse = init_struct ();
 
@@ -140,7 +140,7 @@ char
     {
       if (strcmp (translate[n], alphanumeric_morse[j].morse_code) == 0)
 	{
-	  translate[n] = alphanumeric_morse[j].alphanumeric_code;
+	  strcpy (translate[n], alphanumeric_morse[j].alphanumeric_code);
 	  if (n < i - 1)
 	    {
 	      n++;

@@ -22,7 +22,7 @@ along with morse. If not, see <http://www.gnu.org/licenses/>. */
 #ifndef LIBALPHANUMERIC_MORSE_H
 #define LIBALPHANUMERIC_MORSE_H
 
-#define ELEMENTS 36
+#define ELEMENTS 37
 
 typedef struct
 {

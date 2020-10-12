@@ -28,8 +28,8 @@ START_TEST (test_morse_create)
 {
   alphanumeric_morse_t *alphanumeric_morse = init_struct ();
 
-  ck_assert_str_eq (alphanumeric_morse[0].morse_code, ".-");  
-  ck_assert_str_eq (alphanumeric_morse[0].alphanumeric_code, "a");  
+  ck_assert_str_eq (alphanumeric_morse[1].morse_code, ".-");  
+  ck_assert_str_eq (alphanumeric_morse[1].alphanumeric_code, "a");  
 }
 END_TEST
 
@@ -56,10 +56,13 @@ END_TEST
 START_TEST (test_morse_translate_morse_code)
 {
   alphanumeric_morse_t *alphanumeric_morse = init_struct ();
-  char morse[] = "..- ..";
+  char morse[] = ".- ... .. .-";
   char **translate = translate_morse_code (alphanumeric_morse, morse);   
-  ck_assert_str_eq (translate[0], "u");
-  ck_assert_str_eq (translate[1], "i");
+  ck_assert_str_eq (translate[0], "a");
+  ck_assert_str_eq (translate[1], "s");
+  ck_assert_str_eq (translate[2], "i");
+  ck_assert_str_eq (translate[3], "a");
+  free (translate);
 }
 END_TEST
 

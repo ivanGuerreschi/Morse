@@ -34,7 +34,9 @@ print_menu (void)
   puts ("(1, 2, 3) Input number");
   puts ("(1) Quit ");
   puts ("(2) Print all Alphanumeric and Morse code");
-  puts ("(3) Translate Morse code");
+  puts ("(3) Exist Alphanumeric Code");
+  puts ("(4) Exist Morse Code");
+  puts ("(5) Translate Morse Code");
   puts ("----------------------------------------------");
 
   fgets (buffer, sizeof (buffer), stdin);

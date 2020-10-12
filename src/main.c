@@ -49,7 +49,7 @@ main (int argc, char *argv[])
           break;
 
         case 3:
-          puts ("Enter Alphanumeric code");
+          puts ("Enter Alphanumeric Code");
           char alphanumeric[BUFSIZ];
 
           if (fgets (alphanumeric, sizeof (alphanumeric), stdin) == NULL)
@@ -58,9 +58,45 @@ main (int argc, char *argv[])
             alphanumeric[strcspn (alphanumeric, "\r\n")] = 0;
 
           puts (exist_alphanumeric_code (alphanumeric_morse, alphanumeric)
-                ? "The Alphanumeric exists"
-                : "The Alphanumeric does not exist");
+                ? "The Alphanumeric Code exists"
+                : "The Alphanumeric Code does not exist");
           break;
+
+	case 4:
+          puts ("Enter Morse Code");
+          char morse[BUFSIZ];
+
+          if (fgets (morse, sizeof (morse), stdin) == NULL)
+            fprintf (stderr, "Fail to read the input stream\n");
+          else
+            morse[strcspn (morse, "\r\n")] = 0;
+
+          puts (exist_morse_code (alphanumeric_morse, morse)
+                ? "The Morse Code exists"
+                : "The Morse Code does not exist");
+          break;
+
+	case 5:
+	  puts ("Enter Morse Code for translate");
+	  char morse_t[BUFSIZ];                                    
+	  int i = 0;
+	  
+          if (fgets (morse_t, sizeof (morse_t), stdin) == NULL)
+	    fprintf (stderr, "Fail to read the input stream\n");
+	  else
+	    morse_t[strcspn (morse_t, "\r\n")] = 0;
+
+	  char **translate = translate_morse_code (alphanumeric_morse, morse_t);
+	  
+	  while (translate[i])
+	    {
+	      printf ("%s", translate[i]);
+	      i++;
+	    }
+
+	  puts("");
+	  
+	  free (translate);
         }
     }
 
